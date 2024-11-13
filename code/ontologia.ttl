@@ -1,0 +1,383 @@
+@prefix : <http://www.semanticweb.org/david/ontologies/2023/10/untitled-ontology-2/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/david/ontologies/2023/10/untitled-ontology-2/> .
+
+<http://www.semanticweb.org/david/ontologies/2023/10/untitled-ontology-2> rdf:type owl:Ontology .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.semanticweb.org/david/ontologies/2023/10/untitled-ontology-2#autores_preferidos
+:autores_preferidos rdf:type owl:ObjectProperty ;
+                    rdfs:subPropertyOf owl:topObjectProperty ;
+                    rdfs:domain :lector ;
+                    rdfs:range :autor .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/10/untitled-ontology-2#tiene_libro
+:tiene_libro rdf:type owl:ObjectProperty ;
+             rdfs:subPropertyOf owl:topObjectProperty ;
+             owl:inverseOf :tiene_genero ;
+             rdfs:domain :genero ;
+             rdfs:range :libro .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/10/untitled-ontology-2/escrito_por
+:escrito_por rdf:type owl:ObjectProperty ;
+             rdfs:subPropertyOf owl:topObjectProperty ;
+             owl:inverseOf :ha_escrito ;
+             rdf:type owl:FunctionalProperty ;
+             rdfs:domain :libro ;
+             rdfs:range :autor .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/10/untitled-ontology-2/especializado_en
+:especializado_en rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf owl:topObjectProperty ;
+                  rdf:type owl:FunctionalProperty ;
+                  rdfs:domain :autor ;
+                  rdfs:range :genero .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/10/untitled-ontology-2/ha_adquirido
+:ha_adquirido rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf owl:topObjectProperty ;
+              rdfs:domain :lector ;
+              rdfs:range :libro .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/10/untitled-ontology-2/ha_escrito
+:ha_escrito rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf owl:topObjectProperty ;
+            rdfs:domain :autor ;
+            rdfs:range :libro .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/10/untitled-ontology-2/tiene_genero
+:tiene_genero rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf owl:topObjectProperty ;
+              rdfs:domain :libro ;
+              rdfs:range :genero .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.semanticweb.org/david/ontologies/2023/10/untitled-ontology-2#epoca
+:epoca rdf:type owl:DatatypeProperty ;
+       rdfs:subPropertyOf owl:topDataProperty ;
+       rdf:type owl:FunctionalProperty ;
+       rdfs:domain :autor ;
+       rdfs:range xsd:int .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/10/untitled-ontology-2#epoca_quiere
+:epoca_quiere rdf:type owl:DatatypeProperty ;
+              rdfs:subPropertyOf owl:topDataProperty ;
+              rdf:type owl:FunctionalProperty ;
+              rdfs:domain :lector ;
+              rdfs:range xsd:int .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/10/untitled-ontology-2#epocas_prefiere
+:epocas_prefiere rdf:type owl:DatatypeProperty ;
+                 rdfs:subPropertyOf owl:topDataProperty ;
+                 rdfs:domain :lector ;
+                 rdfs:range xsd:int .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/10/untitled-ontology-2#generos_prefiere
+:generos_prefiere rdf:type owl:DatatypeProperty ;
+                  rdfs:subPropertyOf owl:topDataProperty ;
+                  rdfs:domain :lector ;
+                  rdfs:range xsd:int .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/10/untitled-ontology-2#generos_quiere
+:generos_quiere rdf:type owl:DatatypeProperty ;
+                rdfs:subPropertyOf owl:topDataProperty ;
+                rdfs:domain :lector ;
+                rdfs:range xsd:int .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/10/untitled-ontology-2#preferencias_best_sellers
+:preferencias_best_sellers rdf:type owl:DatatypeProperty ;
+                           rdfs:subPropertyOf owl:topDataProperty ;
+                           rdf:type owl:FunctionalProperty ;
+                           rdfs:domain :lector ;
+                           rdfs:range xsd:int .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/10/untitled-ontology-2/complejidad
+:complejidad rdf:type owl:DatatypeProperty ;
+             rdfs:subPropertyOf owl:topDataProperty ;
+             rdf:type owl:FunctionalProperty ;
+             rdfs:domain :lector ,
+                         :libro ;
+             rdfs:range xsd:float .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/10/untitled-ontology-2/edad
+:edad rdf:type owl:DatatypeProperty ;
+      rdfs:subPropertyOf owl:topDataProperty ;
+      rdf:type owl:FunctionalProperty ;
+      rdfs:domain :lector ;
+      rdfs:range xsd:int .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/10/untitled-ontology-2/frec_lectura_anual
+:frec_lectura_anual rdf:type owl:DatatypeProperty ;
+                    rdfs:subPropertyOf owl:topDataProperty ;
+                    rdf:type owl:FunctionalProperty ;
+                    rdfs:domain :lector ;
+                    rdfs:range xsd:int .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/10/untitled-ontology-2/gustan_autores_extranjeros
+:gustan_autores_extranjeros rdf:type owl:DatatypeProperty ;
+                            rdfs:subPropertyOf owl:topDataProperty ;
+                            rdf:type owl:FunctionalProperty ;
+                            rdfs:domain :lector ;
+                            rdfs:range xsd:boolean .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/10/untitled-ontology-2/lugar_lectura
+:lugar_lectura rdf:type owl:DatatypeProperty ;
+               rdfs:subPropertyOf owl:topDataProperty ;
+               rdf:type owl:FunctionalProperty ;
+               rdfs:domain :lector ;
+               rdfs:range xsd:int .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/10/untitled-ontology-2/momento_lectura
+:momento_lectura rdf:type owl:DatatypeProperty ;
+                 rdfs:subPropertyOf owl:topDataProperty ;
+                 rdf:type owl:FunctionalProperty ;
+                 rdfs:domain :lector ;
+                 rdfs:range xsd:int .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/10/untitled-ontology-2/nacionalidad
+:nacionalidad rdf:type owl:DatatypeProperty ;
+              rdfs:subPropertyOf owl:topDataProperty ;
+              rdf:type owl:FunctionalProperty ;
+              rdfs:domain :autor ,
+                          :lector ;
+              rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/10/untitled-ontology-2/nombre
+:nombre rdf:type owl:DatatypeProperty ;
+        rdfs:subPropertyOf owl:topDataProperty ;
+        rdf:type owl:FunctionalProperty ;
+        rdfs:domain :autor ,
+                    :genero ,
+                    :lector ;
+        rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/10/untitled-ontology-2/npaginas
+:npaginas rdf:type owl:DatatypeProperty ;
+          rdfs:subPropertyOf owl:topDataProperty ;
+          rdf:type owl:FunctionalProperty ;
+          rdfs:domain :libro ;
+          rdfs:range xsd:int .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/10/untitled-ontology-2/observa_valoraciones
+:observa_valoraciones rdf:type owl:DatatypeProperty ;
+                      rdfs:subPropertyOf owl:topDataProperty ;
+                      rdf:type owl:FunctionalProperty ;
+                      rdfs:domain :lector ;
+                      rdfs:range xsd:boolean .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/10/untitled-ontology-2/portable
+:portable rdf:type owl:DatatypeProperty ;
+          rdfs:subPropertyOf owl:topDataProperty ;
+          rdf:type owl:FunctionalProperty ;
+          rdfs:domain :libro ;
+          rdfs:range xsd:boolean .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/10/untitled-ontology-2/titulo_libro
+:titulo_libro rdf:type owl:DatatypeProperty ;
+              rdfs:subPropertyOf owl:topDataProperty ;
+              rdf:type owl:FunctionalProperty ;
+              rdfs:domain :libro ;
+              rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/10/untitled-ontology-2/valoracion
+:valoracion rdf:type owl:DatatypeProperty ;
+            rdfs:subPropertyOf owl:topDataProperty ;
+            rdf:type owl:FunctionalProperty ;
+            rdfs:domain :libro ;
+            rdfs:range xsd:float .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.semanticweb.org/david/ontologies/2023/10/untitled-ontology-2/autor
+:autor rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/10/untitled-ontology-2/best_seller
+:best_seller rdf:type owl:Class ;
+             rdfs:subClassOf :libro .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/10/untitled-ontology-2/genero
+:genero rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/10/untitled-ontology-2/lector
+:lector rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/10/untitled-ontology-2/libro
+:libro rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/10/untitled-ontology-2/poco_conocido
+:poco_conocido rdf:type owl:Class ;
+               rdfs:subClassOf :libro .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.semanticweb.org/david/ontologies/2023/10/untitled-ontology-2/a1
+:a1 rdf:type owl:NamedIndividual ,
+             :autor ;
+    :ha_escrito :l1 ,
+                :l2 ,
+                :l3 ,
+                :l4 ,
+                :l5 ;
+    :nacionalidad "espanol" ;
+    :nombre "Carlos Ruiz Zafon" .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/10/untitled-ontology-2/a2
+:a2 rdf:type owl:NamedIndividual ,
+             :autor ;
+    :ha_escrito :l6 ,
+                :l7 ,
+                :l8 ;
+    :nacionalidad "estadounidense" ;
+    :nombre "Harpeer Lee" .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/10/untitled-ontology-2/a3
+:a3 rdf:type owl:NamedIndividual ,
+             :autor ;
+    :ha_escrito :l10 ,
+                :l9 ;
+    :nacionalidad "estadounidense" ;
+    :nombre "Dan Brown" .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/10/untitled-ontology-2/g1
+:g1 rdf:type owl:NamedIndividual ,
+             :genero .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/10/untitled-ontology-2/g2
+:g2 rdf:type owl:NamedIndividual ,
+             :genero .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/10/untitled-ontology-2/g3
+:g3 rdf:type owl:NamedIndividual ,
+             :genero .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/10/untitled-ontology-2/l1
+:l1 rdf:type owl:NamedIndividual ,
+             :best_seller ;
+    :escrito_por :a1 .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/10/untitled-ontology-2/l10
+:l10 rdf:type owl:NamedIndividual ,
+              :best_seller ;
+     :escrito_por :a3 ;
+     :tiene_genero :g3 ;
+     :complejidad "5.0"^^xsd:float ;
+     :npaginas 432 ;
+     :portable 1 ;
+     :titulo_libro "El codigo Da Vinci" ;
+     :valoracion "4.8"^^xsd:float .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/10/untitled-ontology-2/l2
+:l2 rdf:type owl:NamedIndividual ,
+             :best_seller ;
+    :escrito_por :a1 .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/10/untitled-ontology-2/l3
+:l3 rdf:type owl:NamedIndividual ,
+             :poco_conocido ;
+    :escrito_por :a1 .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/10/untitled-ontology-2/l4
+:l4 rdf:type owl:NamedIndividual ,
+             :best_seller ;
+    :escrito_por :a1 .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/10/untitled-ontology-2/l5
+:l5 rdf:type owl:NamedIndividual ,
+             :poco_conocido ;
+    :escrito_por :a1 .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/10/untitled-ontology-2/l6
+:l6 rdf:type owl:NamedIndividual ,
+             :best_seller ;
+    :escrito_por :a2 .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/10/untitled-ontology-2/l7
+:l7 rdf:type owl:NamedIndividual ,
+             :poco_conocido ;
+    :escrito_por :a2 .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/10/untitled-ontology-2/l8
+:l8 rdf:type owl:NamedIndividual ,
+             :poco_conocido ;
+    :escrito_por :a2 .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/10/untitled-ontology-2/l9
+:l9 rdf:type owl:NamedIndividual ,
+             :best_seller ;
+    :escrito_por :a3 .
+
+
+#################################################################
+#    General axioms
+#################################################################
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :autor
+                :genero
+                :libro
+              )
+] .
+
+
+###  Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi
